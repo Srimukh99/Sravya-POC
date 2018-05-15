@@ -1,0 +1,12 @@
+version: '2'
+services:
+    sravya-app:
+        image: sravya
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://sravya-mysql:3306/sravya?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    sravya-mysql:
+        extends:
+            file: mysql.yml
+            service: sravya-mysql
